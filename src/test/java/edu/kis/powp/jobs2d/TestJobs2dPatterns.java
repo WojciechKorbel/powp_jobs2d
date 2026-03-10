@@ -16,6 +16,9 @@ import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 
+import edu.kis.powp.jobs2d.drivers.adapter.FiguresJaneDriverAdapter;
+import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
+
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -25,6 +28,8 @@ public class TestJobs2dPatterns {
 	 * @param application Application context.
 	 */
 	private static void setupPresetTests(Application application) {
+
+        // Joe
         SelectTestFigureOptionListener selectTestFigure1OptionListener = new SelectTestFigureOptionListener(
                 DriverFeature.getDriverManager(), 1
         );
@@ -34,6 +39,11 @@ public class TestJobs2dPatterns {
                 DriverFeature.getDriverManager(), 2
         );
         application.addTest("Figure Joe 2", selectTestFigure2OptionListener);
+
+        // Jane
+        application.addTest("Figure Jane",
+                (e) -> {FiguresJane.figureScript(new FiguresJaneDriverAdapter());}
+        );
 
 	}
 
