@@ -4,6 +4,9 @@ package edu.kis.powp.command;
 public class ShapeFactory {
     public static ComplexCommand createRectangle(int x, int y, int w, int h) {
         ComplexCommand commands = new ComplexCommand();
+        if (w <= 0 || h <= 0) {
+            return commands;
+        }
         commands.addCommand(new SetPositionCommand(x, y));
         commands.addCommand(new OperateToCommand(x + w, y));
         commands.addCommand(new OperateToCommand(x + w, y + h));
